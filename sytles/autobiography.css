@@ -1,0 +1,111 @@
+body{
+    font-family: Arial, sans-serif;
+    padding-left: 8rem;
+    padding-right: 8rem; /* makke content area more compact */
+    text-align: center; /* center text in everything*/
+    margin: auto; /* center horizontally */
+    background-color: #fff6c5;
+}
+
+body p {
+    text-align: left;
+    line-height: 1.3rem;
+}
+
+/* what i want most ul/ol elements to be formatted */
+body ol, body ul {
+    list-style-position: inside;
+    padding: 0; /** remove default padding, why was there a left padding of 40 by default? */
+    text-align: left; /* horrizontally justify text */
+    line-height: 1.3rem; /* space out the lines */
+}
+
+body li {
+    margin-bottom: 0.2rem; /* space out the list items */
+}
+
+h1{
+    background-color: #b0eacd;
+    margin-bottom: 0; /* remove default margin to create a stacked appearance with navbar*/
+    /* padding: 1.3rem; */
+    padding-bottom: 1.3rem;
+    padding-top: 1.3rem;
+    margin-top: 0; /* remove default margin to go to top of page*/
+}
+
+/* make nav a flex container
+    look up how top and sticky intercat again something aobut position
+solition:
+    Initially, when the element is in the normal flow of the document, it is positioned at the top of its containing element.
+    As the user scrolls down and the element's top reaches the top of the viewport, it becomes "sticky" and remains fixed at the top of the viewport.
+    When the user scrolls back up and the element's top reaches the top of its containing element again, it returns to its original position in the document flow.
+*/
+nav {
+    background-color: #dddddd;
+    font-weight: bold;
+    display: flex; /* horizontal layout */
+    justify-content: center; /* center the navbar  -- look more into it*/
+    height: 2.5rem;
+    top: 0; /* make it to very top of screen */
+    position: sticky; /* stick to the top */
+}
+
+nav ul{
+    display: flex; /* horizontal layout */
+    list-style-type: none; /* remove bullet points */
+    justify-content: space-around; /* evenly space out the items, if 1 item its in center */
+    line-height: 100%; /* OVERRIDE THE OG LINE HEIGHT */
+    align-items: center; /* center the items vertically */
+    width: 100%; /* fill the entire width of the nav, without this, the whole nav container isn't being filled*/   
+}
+
+a{
+    text-decoration: none; 
+    color: navy;
+}
+
+/* #education ol{
+    /* line-height: 1.2rem; */
+
+/* indent these paragraphs because they got lots of text */
+#aboutme, #hobbies{
+    text-indent: 2rem;
+}
+
+
+/* we want this list/ bullet in the center */
+/*
+NOTES: 
+    - justify-content: center; centers the items horizontally
+    - align-items: center; centers the items vertically
+    - display: inline-block{
+Block-Level vs. Inline-Level Elements: By default, ul and ol elements are block-level elements, which means they take up the full width of their container and start on a new line. This is why the text affects the position of the bullet points, as the bullet points are part of the list item and align with the first line of text.
+
+I like belows explanation better: 
+By default, list items (li elements) in an unordered list (ul) or ordered list (ol) are block-level elements, meaning they start on a new line and take up the full width of their container. In this default behavior, the bullet points or numbering align with the first line of text in each list item. This alignment is affected by the text because the bullet points or numbering are considered part of the list item's content.
+
+Bullet Points Alignment: When you use display: inline-block;, the bullet points are no longer part of the text flow, so they are not affected by the text alignment. The list items still behave like block-level elements, but they align horizontally next to each other, and the bullet points remain in a consistent position relative to the list items.
+
+To summarize: inline-block; changes the behavior of the ul element to allow for horizontal alignment while keeping the block-level structure needed for list items. This helps align the bullet points nicely without being affected by the text alignment.
+    }
+*/
+
+#webmobile ul {
+    text-align: left;
+    display: inline-block; /* a block is created with just the list content */
+    /* border-style: solid; */
+    width: 100%; /* fill x amount of the container this ul is in. */
+}
+
+#webmobile h3 {
+    text-align: left;
+    border-bottom: #67bdda 2px solid;   
+
+}
+
+/* footer was too close to bottom*/
+footer {
+    margin-bottom: 1.5rem;
+}
+
+
