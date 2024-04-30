@@ -1,0 +1,295 @@
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.3;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    background-color: #f4deff; /* Light Gray background */
+    margin: auto; /* Center horizontally */
+    text-align: center; /* Center text in everything */
+}
+
+/* ======= START of index.html container (landing page) ======= */
+.container {
+    display: grid;
+    grid-template-areas: 'header header'
+    'nav main-conent'
+    'footer footer';
+    min-height: 100vh; /* MAYBE THIS FINE */
+    gap: 1rem;   
+}
+
+/* landing page grid items */
+.header { grid-area: header; }
+.navbar { grid-area: nav; }
+.main-content { grid-area: main-content; }
+.footer { grid-area: footer }
+
+h1 a{
+    color: #266073;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(12, 12, 208);
+}
+
+ul {
+    list-style-type: none;
+}
+
+#hero-text-landing  { 
+    text-align: left;
+}
+
+/* why does navbar and navbar ul need to be flexbox */
+.navbar {
+    border: solid 1px black;
+    box-shadow: .2px .3px .4px black;
+    display: flex;
+    /* margin-bottom: 1rem; Kind of weird, ill fix later maybe, this by default pushes the footer, there's can push footer more nicely other way */
+    border-radius: 7px; /* Rounded corners */
+    height: 75vh;
+}
+
+.navbar ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Main content paragraph/ image */
+.main-content {
+    display: flex;
+    align-items: center;
+}
+
+/* MAKE P PADDING */
+.main-content p {
+    text-align: left;
+    text-indent: 2rem;
+    padding-left: .5rem;
+    padding-right: 1rem;
+}
+
+/* Image in Landing page */
+.landing-pic {
+    width: 45vh;
+    border-radius: 1rem;
+    box-shadow: 1px 2.5px 4px black;
+}
+
+/* how to make content of footer go to very bottom of containerp*/
+.footer {
+    padding: .5rem;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+#footer-p { 
+    font-style: italic;
+    font-size: .8rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.footer-nav{
+    padding: .5rem 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.copyright{
+    border-top: 1px solid rgb(117, 169, 205);
+    padding-top: .5rem;
+    font-weight: bold; /* Make it bold to pop out */
+}
+
+.copyright a {
+    text-decoration: underline;
+    color: black;
+}
+
+/* ======= END of index.html container (landing page) ======= */
+
+/* ======= emotional aspect hero image (Almost Identical To Other Pages) =======  */
+
+.hero-image-emotional{
+    background-image: url("images/distressed_student.jpeg");
+    height: 40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* generic hero text for all hero images */
+.hero-text{
+    display: flex;
+    color: whitesmoke;
+    text-shadow: 3px 2px 4px black;
+    justify-content: center; 
+    align-items: center;
+    height: 100%; /* make sure the div takes the full height of its parent */
+}
+
+
+.hero-image-academic{
+    background-image: url("images/studious_student1.jpeg");
+    height: 40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-image-positive {
+    background-image: url("images/happy_student1.jpeg");
+    height: 40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* make it span whole cointainer */
+}
+
+.reference-text{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.reference-text a {
+    text-decoration: underline;
+}
+
+/* Don't show button in higher screen res */
+.dropdown-btn{
+    display: none;
+}
+
+@media screen and (max-width: 1200px){
+    /* ======= resize navbar and image to look nicer/ not too big ======= */
+
+    .landing-pic{
+        width: 25vw; /* maybe add max-height to constrain height idk*/
+    }
+
+    .navbar{
+        max-height: 65vh;
+    }
+
+    .footer-nav{
+        font-size: .9rem ;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    /* 
+    IDEA ---> Turn container into a flexbox with column direction
+    Perhaps it'll makeeverything look nicer and maybe the image will scale down nicely rather than staying
+    the same size while making the paragraph text smaller
+    */
+
+    body{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    /* ======= modify layout for smaller screens | remove nav for dropdown | image layout ======= */
+    .container {
+        display: grid;
+        grid-template-areas: 'header btn'
+        'main-content main-content'
+        'footer footer';
+        height: 100vh; 
+        gap: 1rem;   
+        /* grid-template-columns: 1fr auto; 1st column takes remaining space, second column is auto-sized */
+    }
+
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Time to work on button */
+    .dropdown-container{
+        display: flex;
+        flex-direction: column; /* stack btn on top of the navbar */
+        grid-area: btn;
+        align-items: flex-end; /* align button to the right */
+        justify-content: center; /* center button vertically */
+    }
+
+    .dropdown-btn{
+        display: flex;
+        background-color: rgb(161, 149, 208);
+        border: none;
+        color: whitesmoke;
+        text-shadow: 1.5px 1px 1px black;
+        padding: 1rem;
+        font-weight: bold;
+        border-radius: 10px; 
+        cursor: pointer; /* changes appearnace when hovered over if using mouse */
+    }
+
+    .navbar{
+        display: none;
+        border: none;
+        width: auto;
+        background-color: rgb(224, 221, 221);
+        height: auto; /* make it so it doesn't take up whole screen */
+        /* border: none; */
+    }
+    .dropdown-content{
+        padding: 0 !important;
+        margin: 0;
+    }
+
+    .navbar li{ 
+        border: solid 1px black;
+  
+    }
+
+    .navbar a{
+        color: rgb(11, 114, 188);
+    }
+
+    .dropdown-content li{
+        padding: .2rem;
+    }
+    /* END OF BUTTON */
+
+    /* Make the main content span the entire grid width */
+    main{
+        grid-column: 1 / -1;
+    }
+
+    .landing-pic{
+        display: none;
+    }
+    .hero-image-landing{
+        background-image: url("images/new_intro.jpeg");
+        height: 25vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    #hero-text-landing{
+        display: flex;
+        color: whitesmoke;
+        text-shadow: 3px 2px 4px black;
+        justify-content: center; 
+        align-items: center;
+        height: 100%; /* make sure the div takes the full height of its parent */
+    }
+
+    .footer-nav{
+        font-size: .7rem;
+    }
+
+    #landing-page-overview{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
